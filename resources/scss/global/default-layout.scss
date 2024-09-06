@@ -1,0 +1,22 @@
+$padding: 20px;
+
+.app{
+    display: flex;
+    height: 100vh;
+
+    .sidebar{
+        width: 300px;
+    }
+
+    main{
+        flex: 1;
+
+        .top-nav{
+            padding: 0 $padding;
+        }
+
+        .content{
+            padding: $padding;
+        }
+    }
+}

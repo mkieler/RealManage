@@ -1,0 +1,59 @@
+@use "node_modules/@picocss/pico/scss/pico" with (
+    $theme-color: "indigo",
+    $css-var-prefix: "--realmange-"
+);
+
+@use "global/grid.scss";
+@use "global/default-layout.scss";
+
+
+
+.table {
+    display: table;
+    width: 100%; /* Bredde kan justeres eller fjernes efter behov */
+    border-collapse: collapse;
+    font-size: small;
+
+    a.row{
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            background-color: var(--realmange-primary-focus);
+        }
+    }
+
+    .row {
+        display: table-row;
+        
+        &.header {
+            color: var(--realmange-muted-color);
+            font-weight: bold;
+        }
+
+        &:nth-child(odd) {
+            background-color: var(--realmange-table-row-stripped-background-color);
+        }
+
+        .cell {
+            display: table-cell;
+            padding: 10px;
+            text-align: left;
+        }
+
+
+    }
+}
+
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+

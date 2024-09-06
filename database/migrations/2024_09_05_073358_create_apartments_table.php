@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Property::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Property::class);
             $table->enum('type', ['business', 'private']);
             $table->integer('m2');
             $table->timestamps();

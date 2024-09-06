@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Address::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Address::class);
             $table->string('reg_number')->unique();
             $table->integer('m2');
             $table->timestamps();
