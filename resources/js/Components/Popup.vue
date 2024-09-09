@@ -17,21 +17,25 @@
 </script>
 
 <template>
-    <dialog open v-show="visible" @click="() => toggleVisibility()">
-        <article @click.stop>
-            <header>
-                <button aria-label="Close" rel="prev" @click="() => toggleVisibility()"></button>
+    <Transition name="fade-in">
+        <dialog open v-show="visible" @click="() => toggleVisibility()">
+            <Transition name="slide-in-bottom-delayed">
+                <article v-show="visible" @click.stop>
+                    <header>
+                        <button aria-label="Close" rel="prev" @click="() => toggleVisibility()"></button>
 
-                <p>
-                    <strong>{{ heading }}</strong>
-                </p>
-            </header>
+                        <p>
+                            <strong>{{ heading }}</strong>
+                        </p>
+                    </header>
 
-            <slot></slot>
-            
-            <footer v-if="$slots.footer">
-                <slot name="footer"></slot>
-            </footer>
-        </article>
-    </dialog>
+                    <slot></slot>
+                    
+                    <footer v-if="$slots.footer">
+                        <slot name="footer"></slot>
+                    </footer>
+                </article>
+            </Transition>
+        </dialog>
+    </Transition>
 </template>

@@ -1,18 +1,53 @@
 @use "node_modules/@picocss/pico/scss/pico" with (
     $theme-color: "indigo",
-    $css-var-prefix: "--realmange-"
+    $css-var-prefix: "--realmange-",
+    $breakpoints: (
+        // Small (landscape phones)
+        // Font size: 17px
+        sm: (
+            breakpoint: 576px,
+            viewport: 510px,
+            root-font-size: 86.25%,
+        ),
+        // Medium (tablets)
+        // Font size: 18px
+        md: (
+            breakpoint: 768px,
+            viewport: 700px,
+            root-font-size: 92.5%,
+        ),
+        // Large (desktops)
+        // Font size: 20px
+        lg: (
+            breakpoint: 1024px,
+            viewport: 950px,
+            root-font-size: 105%,
+        ),
+        // Extra large (large desktops)
+        // Font size: 22px
+        xl: (
+            breakpoint: 1280px,
+            viewport: 1200px,
+            root-font-size: 107.5%,
+        ),
+        // Extra extra large (larger desktops)
+        // Font size: 24px
+        xxl: (
+            breakpoint: 1536px,
+            viewport: 1450px,
+            root-font-size: 110%,
+        ),
+    ),
 );
 
 @use "global/grid.scss";
 @use "global/default-layout.scss";
 
-
-
 .table {
     display: table;
     width: 100%; /* Bredde kan justeres eller fjernes efter behov */
     border-collapse: collapse;
-    font-size: small;
+    font-size: medium;
 
     a.row{
         text-decoration: none;
@@ -46,14 +81,30 @@
 }
 
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
+.fade-in-enter-active,
+.fade-in-leave-active {
+  transition: opacity 0.3s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.fade-in-enter-from,
+.fade-in-leave-to {
   opacity: 0;
 }
+
+
+.slide-in-bottom-delayed-enter-active {
+    transition: all 0.3s ease-out;
+    transition-delay: 0.25s;
+  }
+  
+  .slide-in-bottom-delayed-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  
+  .slide-in-bottom-delayed-enter-from,
+  .slide-in-bottom-delayed-leave-to {
+    transform: translateY(60px);
+    opacity: 0;
+  }
 
 

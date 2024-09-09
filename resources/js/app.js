@@ -1,6 +1,7 @@
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import defaultLayout from './Layouts/Default.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
 createInertiaApp({
@@ -13,6 +14,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      .component('font-awesome-icon', FontAwesomeIcon)
       .mount(el)
   },
 })

@@ -1,21 +1,17 @@
 <script>
-    import { defineProps } from 'vue'
     import Table from '../../Components/DataTable/Table.vue';
     import Row from '../../Components/DataTable/Row.vue';
     import Cell from '../../Components/DataTable/Cell.vue';
-    import Popup from '../../Components/Popup.vue';
-    import { ref } from 'vue';
+    import CreateModal from './Partials/CreateOrUpdateModal.vue'
+    
 
     export default {
         components: {
             Table,
             Row,
             Cell,
-            Popup
-        },
-        setup() {
-            
-        },
+            CreateModal
+        }
     }
 </script>
 
@@ -30,21 +26,9 @@
 
         <ul>
             <li>
-                <button @click="() => this.$refs.popupRef.toggleVisibility()">
-                    Opret ny ejendom
-                </button>
+                <CreateModal/>
 
-                <Popup ref="popupRef" heading="Opret bolig">
-
-                    hello
-
-                    <template #footer>
-                        <div>
-                            <button @click="() => this.$refs.popupRef.toggleVisibility()">Cancel</button>
-                            <button>Save</button>
-                        </div>
-                    </template>
-                </Popup>
+                
             </li>
         </ul>
     </nav>

@@ -1,6 +1,6 @@
 $item_gap: 1.5rem;
 $total_columns: 6;
-$item_min_width: 440px;
+$item_min_width: 10px;
 
 
 // Media Queries:
@@ -35,7 +35,7 @@ $item_min_width: 440px;
     }
 
     @for $columns from 1 through $total_columns {
-        .column-span-#{$columns} {
+        .col-span-#{$columns} {
             grid-column: span $columns;
         }
     }
